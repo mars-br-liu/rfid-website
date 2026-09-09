@@ -235,63 +235,6 @@ ul,ol{list-style:none}
 .user-image.size-large{max-width:800px}
 .user-image.size-full{max-width:100%}
 
-/* ===== EDIT MODE: FLOATING TEXT TOOLBAR ===== */
-.text-toolbar{position:fixed;z-index:9100;display:none;gap:2px;align-items:center;background:rgba(14,28,51,.96);backdrop-filter:blur(12px);border-radius:var(--r-md);padding:4px;box-shadow:0 8px 32px rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.08)}
-.text-toolbar.show{display:flex}
-.tt-btn{width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:6px;color:#cbd5e1;transition:all .15s;font-size:14px;font-weight:600}
-.tt-btn:hover{background:rgba(255,255,255,.12);color:#fff}
-.tt-btn.active{background:var(--c-action);color:#fff}
-.tt-divider{width:1px;height:20px;background:rgba(255,255,255,.12);margin:0 2px}
-.tt-size{display:flex;align-items:center;gap:2px}
-.tt-size-val{min-width:32px;text-align:center;color:#fff;font-size:12px;font-weight:600}
-.tt-color{position:relative}
-.tt-color input[type=color]{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer}
-.tt-link{width:auto!important;padding:0 10px;font-size:12px;gap:4px}
-
-/* ===== EDIT MODE: IMAGE CLICK-TO-REPLACE ===== */
-body.edit-mode .hero-visual,body.edit-mode .case-icon,body.edit-mode .solution-icon,body.edit-mode .service-card-icon,body.edit-mode .company-feature-icon,body.edit-mode .product-item-icon,body.edit-mode .contact-item-icon,body.edit-mode .logo-icon-wrap,body.edit-mode .user-image{position:relative;cursor:pointer}
-body.edit-mode .hero-visual::after,body.edit-mode .case-icon::after,body.edit-mode .solution-icon::after,body.edit-mode .service-card-icon::after,body.edit-mode .company-feature-icon::after,body.edit-mode .product-item-icon::after,body.edit-mode .contact-item-icon::after,body.edit-mode .logo-icon-wrap::after,body.edit-mode .user-image::after{content:'';position:absolute;inset:0;background:rgba(22,87,217,.15);border:2px dashed var(--c-action);border-radius:inherit;opacity:0;transition:opacity .2s;pointer-events:none;z-index:5}
-body.edit-mode .hero-visual:hover::after,body.edit-mode .case-icon:hover::after,body.edit-mode .solution-icon:hover::after,body.edit-mode .service-card-icon:hover::after,body.edit-mode .company-feature-icon:hover::after,body.edit-mode .product-item-icon:hover::after,body.edit-mode .contact-item-icon:hover::after,body.edit-mode .logo-icon-wrap:hover::after,body.edit-mode .user-image:hover::after{opacity:1}
-body.edit-mode .hero-visual::before,body.edit-mode .user-image::before{content:'Click to Replace';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(22,87,217,.92);color:#fff;padding:6px 16px;border-radius:var(--r-full);font-size:13px;font-weight:600;z-index:6;opacity:0;transition:opacity .2s;pointer-events:none;white-space:nowrap}
-body.edit-mode .hero-visual:hover::before,body.edit-mode .user-image:hover::before{opacity:1}
-
-/* ===== ADD IMAGE ZONE ===== */
-.add-image-zone{display:none;border:2px dashed var(--c-border);border-radius:var(--r-md);padding:var(--sp-6);text-align:center;color:var(--c-text-light);font-size:14px;cursor:pointer;transition:all var(--t);margin:var(--sp-4) 0}
-body.edit-mode .add-image-zone{display:block}
-.add-image-zone:hover{border-color:var(--c-action);background:var(--c-action-light);color:var(--c-action)}
-.add-image-zone svg{width:28px;height:28px;margin:0 auto var(--sp-2);opacity:.6}
-
-/* ===== IMAGE SIZE SELECTOR ===== */
-.img-size-selector{position:absolute;top:8px;right:8px;z-index:6;display:flex;gap:2px;background:rgba(14,28,51,.92);border-radius:var(--r-sm);padding:2px;opacity:0;transition:opacity .2s}
-body.edit-mode .user-image:hover .img-size-selector{opacity:1}
-.img-size-btn{padding:3px 8px;font-size:11px;font-weight:600;color:#cbd5e1;border-radius:4px;transition:all .15s}
-.img-size-btn:hover{background:rgba(255,255,255,.15);color:#fff}
-.img-size-btn.active{background:var(--c-action);color:#fff}
-.img-delete-btn{position:absolute;top:8px;left:8px;z-index:6;width:26px;height:26px;display:flex;align-items:center;justify-content:center;background:rgba(224,56,60,.9);color:#fff;border-radius:50%;font-size:14px;opacity:0;transition:opacity .2s}
-body.edit-mode .user-image:hover .img-delete-btn{opacity:1}
-
-/* ===== EDIT TOOLBAR ===== */
-.edit-toolbar{position:fixed;bottom:24px;right:24px;z-index:9000;display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.95);backdrop-filter:blur(16px);border:1px solid var(--c-border);border-radius:var(--r-full);padding:6px;box-shadow:0 8px 32px rgba(10,30,70,.15)}
-.edit-btn{padding:8px 16px;font-size:14px;font-weight:var(--fw-sb);border-radius:var(--r-full);color:var(--c-text-sec);transition:all .2s;display:flex;align-items:center;gap:6px;white-space:nowrap}
-.edit-btn:hover{background:var(--c-bg-alt);color:var(--c-text)}
-.edit-btn-main{background:var(--grad-action);color:#fff;box-shadow:0 4px 14px var(--c-action-glow)}
-.edit-btn-main:hover{background:var(--c-action-hover);color:#fff;transform:translateY(-1px)}
-.edit-btn-save{background:var(--c-accent);color:#fff}
-.edit-btn-save:hover{background:#00a890;color:#fff}
-.edit-btn-danger{color:#e0383c}
-.edit-btn-danger:hover{background:rgba(224,56,60,.08)}
-.edit-actions{display:none;align-items:center;gap:4px}
-.edit-toolbar.expanded .edit-actions{display:flex}
-.edit-toolbar.expanded .edit-btn-main{background:#e0383c;box-shadow:0 4px 14px rgba(224,56,60,.3)}
-.edit-divider{width:1px;height:24px;background:var(--c-border);margin:0 2px}
-.edit-banner{position:fixed;top:var(--header-h);left:0;right:0;background:linear-gradient(135deg,#1657d9,#00d4b4);color:#fff;text-align:center;padding:10px;font-size:14px;font-weight:var(--fw-m);z-index:8999;transform:translateY(-100%);transition:transform .3s;pointer-events:none}
-body.edit-mode .edit-banner{transform:translateY(0)}
-body.edit-mode [contenteditable="true"]{outline:2px dashed transparent;outline-offset:4px;border-radius:4px;transition:outline-color .2s,background .2s;cursor:text}
-body.edit-mode [contenteditable="true"]:hover{outline-color:var(--c-action);background:rgba(22,87,217,.05)}
-body.edit-mode [contenteditable="true"]:focus{outline-color:var(--c-accent);background:rgba(0,212,180,.06)}
-.edit-toast{position:fixed;bottom:90px;right:24px;background:#0e1c33;color:#fff;padding:12px 20px;border-radius:var(--r-md);font-size:14px;font-weight:var(--fw-m);box-shadow:0 8px 24px rgba(0,0,0,.2);z-index:9001;opacity:0;transform:translateY(10px);transition:opacity .3s,transform .3s;pointer-events:none}
-.edit-toast.show{opacity:1;transform:translateY(0)}
-
 /* RESPONSIVE */
 @media(max-width:1023px){
 .hero-grid,.company-grid,.contact-grid{grid-template-columns:1fr;gap:var(--sp-10)}
@@ -324,17 +267,52 @@ body.edit-mode [contenteditable="true"]:focus{outline-color:var(--c-accent);back
 .hero-actions{flex-direction:column;width:100%}
 .btn{width:100%}
 .contact-form-wrapper{padding:var(--sp-6)}
-.edit-toolbar{bottom:16px;right:16px;flex-wrap:wrap;max-width:calc(100vw - 32px)}
-.edit-btn{padding:6px 12px;font-size:13px}
-.text-toolbar{flex-wrap:wrap;max-width:calc(100vw - 32px)}
 }
 @media(max-width:380px){.container,.container-wide{padding:0 var(--sp-4)}.hero-content h1{font-size:26px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}html{scroll-behavior:auto}}
 </style>
-<link type="text/css" rel="stylesheet" charset="UTF-8" href="https://translate.googleapis.com/translate_static/css/translateelement.css"></head>
+<link type="text/css" rel="stylesheet" charset="UTF-8" href="https://translate.googleapis.com/translate_static/css/translateelement.css"><script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+(function() {
+  'use strict';
+  emailjs.init("zGLJrCTiSEr2u4B-HTIKy");
+  var form = document.querySelector('.contact-form');
+  if (form) {
+    form.addEventListener('submit', function(ev) {
+      ev.preventDefault();
+      var btn = form.querySelector('button[type="submit"]');
+      var originalText = btn ? btn.innerHTML : '';
+      if (btn) { btn.disabled = true; btn.innerHTML = 'Sending...'; }
+      var requirement = document.getElementById('requirement');
+      var company = document.getElementById('company');
+      var country = document.getElementById('country');
+      var contact = document.getElementById('contact-info');
+      if (!requirement.value.trim() || !company.value.trim() || !country.value.trim() || !contact.value.trim()) {
+        alert('Please fill in all required fields.');
+        if (btn) { btn.disabled = false; btn.innerHTML = originalText; }
+        return;
+      }
+      emailjs.send('mars@br-support.com.cn', 'template_yapwh0m', {
+        name: requirement.value.trim(),
+        email: company.value.trim(),
+        phone: country.value.trim(),
+        message: contact.value.trim()
+      }).then(function() {
+        alert('Your request has been sent successfully. We will contact you within 24 hours.');
+        form.reset();
+      }, function(err) {
+        console.error('EmailJS error:', err);
+        alert('Failed to send. Please email us directly at mars@br-support.com.cn');
+      }).finally(function() {
+        if (btn) { btn.disabled = false; btn.innerHTML = originalText; }
+      });
+    });
+  }
+})();
+</script>
+</head>
 <body class="">
 <a href="#home" class="skip-link"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">跳转至主要内容</font></font></a>
-<div class="edit-banner" id="editBanner"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">编辑模式已激活 — 点击任何文本即可编辑。悬停在图片上可替换。点击“+”区域可添加图片。按 Ctrl+E 键切换。</font></font></div>
 
 <header class="site-header scrolled" id="siteHeader" role="banner">
 <div class="header-inner">
@@ -493,39 +471,6 @@ body.edit-mode [contenteditable="true"]:focus{outline-color:var(--c-accent);back
 </div>
 </footer>
 
-<!-- FLOATING TEXT TOOLBAR -->
-<div class="text-toolbar" id="textToolbar" style="left: 178.5px; top: 460.562px;">
-<button class="tt-btn" data-cmd="fontSizeDown" title="减小字体大小"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">A</font></font><sup><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">-</font></font></sup></button>
-<div class="tt-size"><span class="tt-size-val" id="ttSizeVal"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">16</font></font></span></div>
-<button class="tt-btn" data-cmd="fontSizeUp" title="增大字体"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">A</font></font><sup><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">+</font></font></sup></button>
-<div class="tt-divider"></div>
-<button class="tt-btn active" data-cmd="bold" title="粗体"><b><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">B</font></font></b></button>
-<button class="tt-btn" data-cmd="italic" title="斜体"><i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我</font></font></i></button>
-<button class="tt-btn" data-cmd="underline" title="下划线"><u><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">U</font></font></u></button>
-<div class="tt-divider"></div>
-<div class="tt-btn tt-color" title="文本颜色"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1.5l5 9.5H3l5-9.5z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"></path><rect x="5" y="13" width="6" height="2" rx="1" fill="currentColor"></rect></svg><input type="color" id="ttColorInput" value="#0e1c33"></div>
-<div class="tt-divider"></div>
-<button class="tt-btn tt-link" data-cmd="resetStyle" title="重置格式"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8a5 5 0 109-3M3 5v3h3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">重置</font></font></button>
-</div>
-
-<!-- EDIT TOOLBAR -->
-<div class="edit-toolbar" id="editToolbar">
-<button class="edit-btn edit-btn-main" id="editToggle" title="切换编辑模式 (Ctrl+E)">
-<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M11 2l3 3-8 8H3v-3l8-8z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path></svg>
-<span id="editToggleText">Edit</span>
-</button>
-<div class="edit-actions">
-<div class="edit-divider"></div>
-<button class="edit-btn edit-btn-save" id="editSave" title="保存到浏览器"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 3h8l2 2v8H3V3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path><path d="M5 3v3h4M5 9h6v4H5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path></svg><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">保存</font></font></button>
-<button class="edit-btn" id="editDownload" title="下载为 HTML 文件"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 2v8M5 7l3 3 3-3M3 13h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">下载</font></font></button>
-<button class="edit-btn edit-btn-danger" id="editReset" title="重置为原始状态"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8a5 5 0 109-3M3 5v3h3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">重置</font></font></button>
-<div class="edit-divider"></div>
-<button class="edit-btn" id="editExit" title="退出编辑模式"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">完成</font></font></button>
-</div>
-</div>
-
-<div class="edit-toast" id="editToast"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">已保存！更改将在本浏览器中保留。</font></font></div>
-
 <script>
 (function(){
 'use strict';
@@ -586,380 +531,14 @@ function renderSolutions(){var g=document.getElementById('solutionsGrid');var h=
 
 function renderServices(){var g=document.getElementById('serviceGrid');var h='';serviceData.forEach(function(s,i){var d=i===1?' reveal-delay-1':(i===2?' reveal-delay-2':'');h+='<div class="service-card reveal'+d+'"><div class="service-card-icon">'+s.icon+'</div><h3>'+s.title+'</h3><p>'+s.desc+'</p><ul class="service-list">';s.items.forEach(function(it){h+='<li>'+it+'</li>'});h+='</ul></div>'});g.innerHTML=h}
 
-/* ===== EDIT MODE ===== */
-var editSelector='main h1,main h2,main h3,main h4,main h5,main p,main li,main .case-tag,main .contact-item-label,main .contact-item-value,main .company-badge-name,main .company-badge-desc,main .hero-stat-value,main .hero-stat-label,main .hero-badge,main .section-eyebrow,main .solution-products-title,main .form-note,main label,footer .footer-brand p,footer .footer-col a,footer .footer-bottom span,footer .footer-col h5';
-var originalMain='',originalFooter='';
-var isEditMode=false;
-var currentEditable=null;
-
-function getEditables(){return document.querySelectorAll(editSelector)}
-
-function setEditMode(on){
-isEditMode=on;
-document.body.classList.toggle('edit-mode',on);
-document.getElementById('editToolbar').classList.toggle('expanded',on);
-document.getElementById('editToggleText').textContent=on?'Editing':'Edit';
-getEditables().forEach(function(el){el.contentEditable=on?'true':'false'});
-if(!on){hideTextToolbar()}
-}
-
-function toggleEditMode(){setEditMode(!isEditMode)}
-
-/* ===== TEXT TOOLBAR ===== */
-var textToolbar=document.getElementById('textToolbar');
-var ttSizeVal=document.getElementById('ttSizeVal');
-var ttColorInput=document.getElementById('ttColorInput');
-
-function showTextToolbar(el){
-currentEditable=el;
-var rect=el.getBoundingClientRect();
-var toolbarW=textToolbar.offsetWidth||300;
-var left=rect.left;
-if(left+toolbarW>window.innerWidth-16){left=window.innerWidth-toolbarW-16}
-if(left<16){left=16}
-var top=rect.bottom+8;
-if(top+40>window.innerHeight){top=rect.top-44}
-textToolbar.style.left=left+'px';
-textToolbar.style.top=top+'px';
-textToolbar.classList.add('show');
-updateToolbarState(el);
-}
-
-function hideTextToolbar(){textToolbar.classList.remove('show');currentEditable=null}
-
-function updateToolbarState(el){
-var fs=window.getComputedStyle(el).fontSize;
-var size=parseInt(fs)||16;
-ttSizeVal.textContent=size;
-ttColorInput.value=rgbToHex(window.getComputedStyle(el).color);
-textToolbar.querySelectorAll('.tt-btn').forEach(function(b){
-var cmd=b.dataset.cmd;
-if(cmd==='bold')b.classList.toggle('active',el.style.fontWeight==='bold'||window.getComputedStyle(el).fontWeight>='600');
-if(cmd==='italic')b.classList.toggle('active',el.style.fontStyle==='italic');
-if(cmd==='underline')b.classList.toggle('active',el.style.textDecoration==='underline');
-});
-}
-
-function rgbToHex(rgb){
-if(!rgb)return'#000000';
-var m=rgb.match(/\d+/g);
-if(!m||m.length<3)return'#000000';
-return'#'+[m[0],m[1],m[2]].map(function(n){return parseInt(n).toString(16).padStart(2,'0')}).join('');
-}
-
-function changeFontSize(el,delta){
-var cur=parseInt(window.getComputedStyle(el).fontSize)||16;
-var ns=Math.max(10,Math.min(80,cur+delta));
-el.style.fontSize=ns+'px';
-ttSizeVal.textContent=ns;
-}
-
-function toggleStyle(el,prop,val){
-if(prop==='fontWeight'){
-el.style.fontWeight=(el.style.fontWeight==='bold')?'':'bold';
-}else if(prop==='fontStyle'){
-el.style.fontStyle=(el.style.fontStyle==='italic')?'':'italic';
-}else if(prop==='textDecoration'){
-el.style.textDecoration=(el.style.textDecoration==='underline')?'':'underline';
-}
-updateToolbarState(el);
-}
-
-textToolbar.addEventListener('click',function(e){
-if(!currentEditable)return;
-var btn=e.target.closest('.tt-btn');
-if(!btn)return;
-e.preventDefault();
-var cmd=btn.dataset.cmd;
-if(cmd==='fontSizeUp')changeFontSize(currentEditable,2);
-else if(cmd==='fontSizeDown')changeFontSize(currentEditable,-2);
-else if(cmd==='bold')toggleStyle(currentEditable,'fontWeight','bold');
-else if(cmd==='italic')toggleStyle(currentEditable,'fontStyle','italic');
-else if(cmd==='underline')toggleStyle(currentEditable,'textDecoration','underline');
-else if(cmd==='resetStyle'){currentEditable.style.fontSize='';currentEditable.style.fontWeight='';currentEditable.style.fontStyle='';currentEditable.style.textDecoration='';currentEditable.style.color='';updateToolbarState(currentEditable)}
-});
-
-ttColorInput.addEventListener('input',function(e){
-if(currentEditable){currentEditable.style.color=e.target.value}
-});
-
-/* ===== IMAGE REPLACEMENT ===== */
-var fileInput=document.createElement('input');
-fileInput.type='file';
-fileInput.accept='image/*';
-fileInput.style.display='none';
-document.body.appendChild(fileInput);
-
-var replaceTarget=null;
-
-fileInput.addEventListener('change',function(e){
-var file=e.target.files[0];
-if(!file)return;
-if(file.size>5*1024*1024){showToast('Image too large (max 5MB). Please choose a smaller image.');return}
-var reader=new FileReader();
-reader.onload=function(ev){
-var dataURL=ev.target.result;
-if(replaceTarget){
-var container=replaceTarget;
-var existingImg=container.querySelector('img');
-var existingSvg=container.querySelector('svg');
-if(existingImg){
-existingImg.src=dataURL;
-}else if(existingSvg){
-existingSvg.outerHTML='<img src="'+dataURL+'" alt="Uploaded image" style="width:100%;height:auto;border-radius:inherit">';
-}
-replaceTarget=null;
-showToast('Image replaced!');
-}else{
-/* Adding new image */
-var section=currentAddSection;
-if(section){
-var wrapper=document.createElement('div');
-wrapper.className='user-image size-medium';
-wrapper.innerHTML='<button class="img-delete-btn" data-action="delete-img" title="Delete image"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button><div class="img-size-selector"><button class="img-size-btn" data-size="small">S</button><button class="img-size-btn active" data-size="medium">M</button><button class="img-size-btn" data-size="large">L</button><button class="img-size-btn" data-size="full">Full</button></div><img src="'+dataURL+'" alt="Uploaded image">';
-section.appendChild(wrapper);
-showToast('Image added!');
-}
-}
-fileInput.value='';
-};
-reader.readAsDataURL(file);
-});
-
-/* ===== ADD IMAGE ZONES ===== */
-var currentAddSection=null;
-
-function addImageZones(){
-document.querySelectorAll('main section').forEach(function(sec){
-var zone=document.createElement('div');
-zone.className='add-image-zone';
-zone.innerHTML='<svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Click to add an image';
-zone.addEventListener('click',function(){
-currentAddSection=sec;
-replaceTarget=null;
-fileInput.click();
-});
-sec.appendChild(zone);
-});
-}
-
-/* ===== SAVE / LOAD / RESET / DOWNLOAD ===== */
-function saveContent(){
-try{
-/* Save main innerHTML but strip add-image-zones */
-var mainClone=document.getElementById('mainContent').cloneNode(true);
-mainClone.querySelectorAll('.add-image-zone').forEach(function(z){z.remove()});
-mainClone.querySelectorAll('[contenteditable]').forEach(function(el){el.removeAttribute('contenteditable')});
-localStorage.setItem('rfid-edit-main-v2',mainClone.innerHTML);
-var footerClone=document.getElementById('siteFooter').cloneNode(true);
-footerClone.querySelectorAll('[contenteditable]').forEach(function(el){el.removeAttribute('contenteditable')});
-localStorage.setItem('rfid-edit-footer-v2',footerClone.innerHTML);
-showToast('Saved! Changes will persist in this browser.');
-}catch(e){showToast('Save failed: '+e.message)}
-}
-
-function loadSavedContent(){
-try{
-var main=localStorage.getItem('rfid-edit-main-v2');
-var footer=localStorage.getItem('rfid-edit-footer-v2');
-if(main){
-document.getElementById('mainContent').innerHTML=main;
-/* Re-add image zones */
-addImageZones();
-}
-if(footer)document.getElementById('siteFooter').innerHTML=footer;
-}catch(e){}
-}
-
-function resetContent(){
-if(!confirm('Reset ALL content to original? This will discard ALL your changes.'))return;
-try{localStorage.removeItem('rfid-edit-main-v2');localStorage.removeItem('rfid-edit-footer-v2')}catch(e){}
-document.getElementById('mainContent').innerHTML=originalMain;
-document.getElementById('siteFooter').innerHTML=originalFooter;
-renderCases();renderSolutions();renderServices();
-addImageZones();
-setEditMode(false);
-initReveal();
-showToast('Content reset to original.');
-}
-
-function downloadHTML(){
-var clone=document.documentElement.cloneNode(true);
-var cloneBody=clone.querySelector('body');
-cloneBody.classList.remove('edit-mode');
-var tb=clone.querySelector('#editToolbar');if(tb)tb.classList.remove('expanded');
-var tt=clone.querySelector('#editToggleText');if(tt)tt.textContent='Edit';
-var tToolbar=clone.querySelector('#textToolbar');if(tToolbar)tToolbar.classList.remove('show');
-clone.querySelectorAll('[contenteditable]').forEach(function(el){el.removeAttribute('contenteditable')});
-clone.querySelectorAll('.add-image-zone').forEach(function(z){z.remove()});
-clone.querySelectorAll('.img-size-selector').forEach(function(s){s.remove()});
-clone.querySelectorAll('.img-delete-btn').forEach(function(b){b.remove()});
-var html='<!DOCTYPE html>\n'+clone.outerHTML;
-var blob=new Blob([html],{type:'text/html;charset=utf-8'});
-var url=URL.createObjectURL(blob);
-var a=document.createElement('a');
-a.href=url;a.download='rfid-website-edited.html';
-document.body.appendChild(a);a.click();document.body.removeChild(a);
-URL.revokeObjectURL(url);
-showToast('HTML file downloaded!');
-}
-
-function showToast(msg){
-var t=document.getElementById('editToast');
-t.textContent=msg;
-t.classList.add('show');
-setTimeout(function(){t.classList.remove('show')},3000);
-}
-
-/* ===== REVEAL ===== */
-function initReveal(){
-var els=document.querySelectorAll('.reveal');
-if('IntersectionObserver' in window){
-var obs=new IntersectionObserver(function(entries){
-entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});
-},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
-els.forEach(function(el){obs.observe(el)});
-}else{els.forEach(function(el){el.classList.add('visible')})}
-}
-
-/* ===== EVENT DELEGATION ===== */
-document.addEventListener('click',function(e){
-/* Solution toggle */
-var toggle=e.target.closest('.solution-toggle');
-if(toggle){
-var id=toggle.getAttribute('aria-controls');
-var panel=document.getElementById(id);
-if(panel){var isOpen=panel.classList.toggle('open');toggle.classList.toggle('open',isOpen);toggle.setAttribute('aria-expanded',isOpen)}
-return;
-}
-/* Menu toggle */
-if(e.target.closest('#menuToggle')){
-var nav=document.getElementById('mainNav');
-var open=nav.classList.toggle('open');
-document.getElementById('menuToggle').setAttribute('aria-expanded',open);
-return;
-}
-/* Nav link */
-var navLink=e.target.closest('.main-nav a');
-if(navLink){
-var nav2=document.getElementById('mainNav');
-if(nav2.classList.contains('open')){nav2.classList.remove('open');document.getElementById('menuToggle').setAttribute('aria-expanded','false')}
-return;
-}
- /* Image delete button — check BEFORE image replace */
- var deleteBtn=e.target.closest('[data-action="delete-img"]');
- if(deleteBtn&&isEditMode){
-  e.stopPropagation();
-  e.preventDefault();
-  var imgWrap=deleteBtn.closest('.user-image');
-  if(imgWrap){imgWrap.remove();showToast('Image deleted.')}
-  return;
- }
- /* Image size button — check BEFORE image replace */
- var sizeBtn=e.target.closest('.img-size-btn');
- if(sizeBtn&&isEditMode){
-  e.stopPropagation();
-  var wrap=sizeBtn.closest('.user-image');
-  if(wrap){
-   wrap.classList.remove('size-small','size-medium','size-large','size-full');
-   wrap.classList.add('size-'+sizeBtn.dataset.size);
-   sizeBtn.parentElement.querySelectorAll('.img-size-btn').forEach(function(b){b.classList.remove('active')});
-   sizeBtn.classList.add('active');
-  }
-  return;
- }
- /* Image replace: click directly on image container in edit mode */
- if(isEditMode){
-  var imgContainer=e.target.closest('.hero-visual, .case-icon, .solution-icon, .service-card-icon, .company-feature-icon, .product-item-icon, .contact-item-icon, .user-image, .logo-icon-wrap');
-  if(imgContainer){
-   e.stopPropagation();
-   e.preventDefault();
-   replaceTarget=imgContainer;
-   currentAddSection=null;
-   fileInput.click();
-   return;
-  }
- }
-/* Edit toolbar */
-if(e.target.closest('#editToggle')){toggleEditMode();return}
-if(e.target.closest('#editSave')){saveContent();return}
-if(e.target.closest('#editDownload')){downloadHTML();return}
-if(e.target.closest('#editReset')){resetContent();return}
-if(e.target.closest('#editExit')){setEditMode(false);return}
-});
-
-/* Text toolbar: track editable focus */
-document.addEventListener('focus',function(e){
-if(isEditMode&&e.target.matches&&e.target.matches('[contenteditable="true"]')){
-showTextToolbar(e.target);
-}
-},true);
-
-document.addEventListener('blur',function(e){
-if(isEditMode&&e.target.matches&&e.target.matches('[contenteditable="true"]')){
-setTimeout(function(){
-if(document.activeElement&&!document.activeElement.matches('[contenteditable="true"]')&&!document.activeElement.closest('.text-toolbar')){
-hideTextToolbar();
-}
-},150);
-}
-},true);
-
-/* Header scroll */
-window.addEventListener('scroll',function(){
-document.getElementById('siteHeader').classList.toggle('scrolled',window.scrollY>10);
-var sp=window.scrollY+80;
-var cid='';
-document.querySelectorAll('main > section[id]').forEach(function(s){if(s.offsetTop<=sp)cid=s.id});
-document.querySelectorAll('.main-nav a[href^="#"]').forEach(function(a){
-a.classList.toggle('active',a.getAttribute('href').substring(1)===cid);
-});
-},{passive:true});
-
-/* Form validation & mailto submit */
-document.addEventListener('submit',function(e){
-var form=e.target.closest('.contact-form');
-if(!form)return;
-e.preventDefault();
-var valid=true;
-form.querySelectorAll('[required]').forEach(function(f){
-if(!f.value.trim()){valid=false;f.style.borderColor='#e0383c'}else{f.style.borderColor=''}
-});
-if(!valid){alert('请填写所有必填字段。');return}
-var req=form.querySelector('#requirement').value.trim();
-var company=form.querySelector('#company').value.trim();
-var country=form.querySelector('#country').value;
-var contact=form.querySelector('#contact-info').value.trim();
-var subject=encodeURIComponent('RFID产品咨询 - '+company);
-var body=encodeURIComponent(
-'您好，我想了解贵公司的RFID解决方案。\n\n'+
-'【项目需求】\n'+req+'\n\n'+
-'【公司信息】\n公司名称：'+company+'\n'+
-'国家/地区：'+(country||'未选择')+'\n'+
-'联系方式：'+contact+'\n'
-);
-alert('Opening your email client...\nIf nothing happens, please manually email to: mars@br-support.com.cn');
-alert('Opening your email client...\nIf nothing happens, please manually email to: mars@br-support.com.cn');window.location.href='mailto:mars@br-support.com.cn?subject='+subject+'&body='+body;
-});
-
-/* Keyboard shortcut */
-document.addEventListener('keydown',function(e){
-if((e.ctrlKey||e.metaKey)&&e.key==='e'){e.preventDefault();toggleEditMode()}
-});
-
 /* ===== INIT ===== */
 function init(){
 renderCases();
 renderSolutions();
 renderServices();
-originalMain=document.getElementById('mainContent').innerHTML;
-originalFooter=document.getElementById('siteFooter').innerHTML;
-loadSavedContent();
-addImageZones();
+
 initReveal();
 }
 if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init)}else{init()}
 })();
-</script><input type="file" accept="image/*" style="display: none;"><div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="https://www.gstatic.com/images/branding/product/1x/translate_24dp.png" width="20" height="20" alt="Google 翻译"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">原文</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">提供更好的翻译建议</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div>
-
-<div class="goog-te-spinner-pos goog-te-spinner-pos-show"><div class="goog-te-spinner-animation goog-te-spinner-animation-show"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div></body></html><!-- Build: Sun Sep  6 15:20:01     2026 -->
+</script></body></html><!-- Build: Sun Sep  6 15:20:01     2026 -->

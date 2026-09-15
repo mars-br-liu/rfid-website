@@ -271,7 +271,7 @@ ul,ol{list-style:none}
 @media(max-width:380px){.container,.container-wide{padding:0 var(--sp-4)}.hero-content h1{font-size:26px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}html{scroll-behavior:auto}}
 </style>
-<link type="text/css" rel="stylesheet" charset="UTF-8" href="https://translate.googleapis.com/translate_static/css/translateelement.css"><script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<link type="text/css" rel="stylesheet" charset="UTF-8" href="https://translate.googleapis.com/translate_static/css/translateelement.css">
 </head>
 <body class="">
 <a href="#home" class="skip-link"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">跳转至主要内容</font></font></a>
@@ -499,8 +499,7 @@ renderCases();
 renderSolutions();
 renderServices();
 document.querySelectorAll('.reveal:not(.visible)').forEach(function(el){el.classList.add('visible')});
-emailjs.init("k1lyXdofGcZkkNGa2");
-var form = document.querySelector('.contact-form');
+  var form = document.querySelector('.contact-form');
 if (form) {
   form.addEventListener('submit', function(ev) {
     ev.preventDefault();
@@ -516,25 +515,18 @@ if (form) {
       if (btn) { btn.disabled = false; btn.innerHTML = originalText; }
       return;
     }
-    emailjs.send('mars@br-support.com.cn', 'template_yapwh0m', {
-      name: requirement.value.trim(),
-      email: company.value.trim(),
-      phone: country.value.trim(),
-      message: contact.value.trim()
-    }).then(function() {
-      alert('Your request has been sent successfully. We will contact you within 24 hours.');
-      form.reset();
-    }, function(err) {
-      console.error('EmailJS full error:', JSON.stringify(err));
-      var msg = 'Failed to send. Please email us directly at mars@br-support.com.cn';
-      if (err && err.status) {
-        msg += '\\nError code: ' + err.status;
-        if (err.text) msg += '\\n' + err.text;
-      }
-      alert(msg);
-    }).finally(function() {
-      if (btn) { btn.disabled = false; btn.innerHTML = originalText; }
-    });
+    var subject = encodeURIComponent('RFID Project Inquiry from ' + company.value.trim());
+    var body = encodeURIComponent(
+      'Project Requirement: ' + requirement.value.trim() + '\n' +
+      'Company: ' + company.value.trim() + '\n' +
+      'Country/Region: ' + country.value.trim() + '\n' +
+      'Contact: ' + contact.value.trim()
+    );
+    var mailto = 'mailto:mars@br-support.com.cn?subject=' + subject + '&body=' + body;
+    window.location.href = mailto;
+    alert('Your email client has been opened with the inquiry details pre-filled. Please send the email to complete your request. If no email client opened, please email us directly at mars@br-support.com.cn');
+    form.reset();
+    if (btn) { btn.disabled = false; btn.innerHTML = originalText; }
   });
 }
 }

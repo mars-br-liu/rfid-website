@@ -272,44 +272,6 @@ ul,ol{list-style:none}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}html{scroll-behavior:auto}}
 </style>
 <link type="text/css" rel="stylesheet" charset="UTF-8" href="https://translate.googleapis.com/translate_static/css/translateelement.css"><script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script>
-(function() {
-  'use strict';
-  emailjs.init("k1lyXdofGcZkkNGa2");
-  var form = document.querySelector('.contact-form');
-  if (form) {
-    form.addEventListener('submit', function(ev) {
-      ev.preventDefault();
-      var btn = form.querySelector('button[type="submit"]');
-      var originalText = btn ? btn.innerHTML : '';
-      if (btn) { btn.disabled = true; btn.innerHTML = 'Sending...'; }
-      var requirement = document.getElementById('requirement');
-      var company = document.getElementById('company');
-      var country = document.getElementById('country');
-      var contact = document.getElementById('contact-info');
-      if (!requirement.value.trim() || !company.value.trim() || !country.value.trim() || !contact.value.trim()) {
-        alert('Please fill in all required fields.');
-        if (btn) { btn.disabled = false; btn.innerHTML = originalText; }
-        return;
-      }
-      emailjs.send('mars@br-support.com.cn', 'template_yapwh0m', {
-        name: requirement.value.trim(),
-        email: company.value.trim(),
-        phone: country.value.trim(),
-        message: contact.value.trim()
-      }).then(function() {
-        alert('Your request has been sent successfully. We will contact you within 24 hours.');
-        form.reset();
-      }, function(err) {
-        console.error('EmailJS error:', err);
-        alert('Failed to send. Please email us directly at mars@br-support.com.cn');
-      }).finally(function() {
-        if (btn) { btn.disabled = false; btn.innerHTML = originalText; }
-      });
-    });
-  }
-})();
-</script>
 </head>
 <body class="">
 <a href="#home" class="skip-link"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">跳转至主要内容</font></font></a>
@@ -536,9 +498,41 @@ function init(){
 renderCases();
 renderSolutions();
 renderServices();
-
 document.querySelectorAll('.reveal:not(.visible)').forEach(function(el){el.classList.add('visible')});
+emailjs.init("k1lyXdofGcZkkNGa2");
+var form = document.querySelector('.contact-form');
+if (form) {
+  form.addEventListener('submit', function(ev) {
+    ev.preventDefault();
+    var btn = form.querySelector('button[type="submit"]');
+    var originalText = btn ? btn.innerHTML : '';
+    if (btn) { btn.disabled = true; btn.innerHTML = 'Sending...'; }
+    var requirement = document.getElementById('requirement');
+    var company = document.getElementById('company');
+    var country = document.getElementById('country');
+    var contact = document.getElementById('contact-info');
+    if (!requirement.value.trim() || !company.value.trim() || !country.value.trim() || !contact.value.trim()) {
+      alert('Please fill in all required fields.');
+      if (btn) { btn.disabled = false; btn.innerHTML = originalText; }
+      return;
+    }
+    emailjs.send('mars@br-support.com.cn', 'template_yapwh0m', {
+      name: requirement.value.trim(),
+      email: company.value.trim(),
+      phone: country.value.trim(),
+      message: contact.value.trim()
+    }).then(function() {
+      alert('Your request has been sent successfully. We will contact you within 24 hours.');
+      form.reset();
+    }, function(err) {
+      console.error('EmailJS error:', err);
+      alert('Failed to send. Please email us directly at mars@br-support.com.cn');
+    }).finally(function() {
+      if (btn) { btn.disabled = false; btn.innerHTML = originalText; }
+    });
+  });
+}
 }
 if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init)}else{init()}
 })();
-</script></body></html><!-- Build: Sun Sep  6 15:20:01     2026 -->
+</script></body></html>

@@ -525,8 +525,13 @@ if (form) {
       alert('Your request has been sent successfully. We will contact you within 24 hours.');
       form.reset();
     }, function(err) {
-      console.error('EmailJS error:', err);
-      alert('Failed to send. Please email us directly at mars@br-support.com.cn');
+      console.error('EmailJS full error:', JSON.stringify(err));
+      var msg = 'Failed to send. Please email us directly at mars@br-support.com.cn';
+      if (err && err.status) {
+        msg += '\\nError code: ' + err.status;
+        if (err.text) msg += '\\n' + err.text;
+      }
+      alert(msg);
     }).finally(function() {
       if (btn) { btn.disabled = false; btn.innerHTML = originalText; }
     });
